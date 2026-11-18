@@ -1,0 +1,20 @@
+# macOS
+.DS_Store
+
+# Hugging Face cache (re-downloaded by the scripts)
+data/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+.ipynb_checkpoints/
+
+# Model checkpoints (too large for git; keep on Colab / Drive)
+checkpoints/
+*.pt
+*.bin
+*.safetensors
+
+# Office lock files
+~$*
