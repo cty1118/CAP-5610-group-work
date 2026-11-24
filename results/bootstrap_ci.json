@@ -1,0 +1,81 @@
+{
+  "meta": {
+    "split": "test",
+    "sentences": 2328,
+    "abstracts": 200,
+    "n_boot": 2000,
+    "seed": 0,
+    "reference": "BiLSTM"
+  },
+  "runs": [
+    {
+      "run": "CNN",
+      "dir": "cnn_final_on_llm_sample",
+      "macro_f1": 80.89,
+      "ci95": [
+        78.2,
+        83.5
+      ],
+      "diff_vs_ref": -2.23,
+      "diff_ci95": [
+        -3.9,
+        -0.6
+      ],
+      "significant": true
+    },
+    {
+      "run": "BiLSTM",
+      "dir": "lstm_final_on_llm_sample",
+      "macro_f1": 83.12,
+      "ci95": [
+        80.6,
+        85.5
+      ]
+    },
+    {
+      "run": "gpt-6.2-sol sentence 0-shot",
+      "dir": "llm_gpt-6.2-sol_sentence_0shot",
+      "macro_f1": 84.1,
+      "ci95": [
+        82.1,
+        86.0
+      ],
+      "diff_vs_ref": 0.97,
+      "diff_ci95": [
+        -0.6,
+        2.6
+      ],
+      "significant": false
+    },
+    {
+      "run": "gpt-6.2-sol abstract 0-shot",
+      "dir": "llm_gpt-6.2-sol_abstract_0shot",
+      "macro_f1": 85.1,
+      "ci95": [
+        83.1,
+        87.0
+      ],
+      "diff_vs_ref": 1.97,
+      "diff_ci95": [
+        0.3,
+        3.6
+      ],
+      "significant": true
+    },
+    {
+      "run": "gpt-6.2-sol abstract 3-shot",
+      "dir": "llm_gpt-6.2-sol_abstract_3shot",
+      "macro_f1": 85.84,
+      "ci95": [
+        83.8,
+        87.7
+      ],
+      "diff_vs_ref": 2.71,
+      "diff_ci95": [
+        1.0,
+        4.4
+      ],
+      "significant": true
+    }
+  ]
+}
