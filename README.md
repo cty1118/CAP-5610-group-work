@@ -64,13 +64,63 @@ Every run is in [`results/summary.md`](results/summary.md); the error analysis i
 Not in git: `data/` (dataset cache), `glove/` (word vectors), `checkpoints/` (model weights),
 `.env` (API key).
 
-## Setup
+## Dependencies and installation
+
+### Requirements
+
+- **Python 3.9 or newer.** Tested with Python 3.9.6 on macOS 15 (Apple M4) and with the
+  default Python on Google Colab.
+- **Hardware**: everything runs on CPU, but a GPU is strongly recommended for training.
+  `train_nn.py` picks CUDA, then Apple MPS, then CPU automatically.
+  Tested on an Apple M4 (MPS) for the CNN and an NVIDIA T4 on Colab for the BiLSTM.
+- **Disk**: about 50 MB for the dataset cache, plus about 1 GB if you use GloVe.
+
+### Python packages
+
+All are in [`requirements.txt`](requirements.txt). Versions we ran with:
+
+| Package | Used for | Tested version |
+|---|---|---|
+| `torch` | TextCNN and BiLSTM models and training | 2.8.0 |
+| `datasets` | Downloading PubMed 20k RCT from Hugging Face | 4.5.0 |
+| `numpy` | Arrays, sampling, bootstrap | 2.0.2 |
+| `scikit-learn` | Metrics (macro-F1, confusion matrix), TF-IDF | 1.6.1 |
+| `matplotlib` | Confusion-matrix and error-analysis figures | 3.9.4 |
+| `openai` | LLM comparison only (`llm_compare.py`) | 2.48.0 |
+
+Everything else comes from the Python standard library.
+
+### Install
 
 ```bash
+git clone https://github.com/cty1118/CAP-5610-group-work.git
+cd CAP-5610-group-work
+python3 -m venv .venv
+source .venv/bin/activate        # Windows: .venv\Scripts\activate
 pip install -r requirements.txt
 ```
 
-The dataset downloads to `./data/hf_cache` on first use.
+For an NVIDIA GPU, install the matching CUDA build of PyTorch first, following
+[pytorch.org/get-started](https://pytorch.org/get-started/locally/). On Colab, `torch` is
+already installed, so `pip install -q datasets scikit-learn` is enough.
+
+Quick check that the install works (under a minute, no GPU needed):
+
+```bash
+python train_nn.py --model cnn --subset 5000 --epochs 1
+```
+
+### External resources
+
+| Resource | Needed for | How to get it |
+|---|---|---|
+| PubMed 20k RCT dataset | Everything | Downloaded automatically on first run to `./data/hf_cache` |
+| GloVe 300-d word vectors | Only the GloVe CNN (`--embedding glove`) | See the GloVe commands in the CNN section below; saved to `./glove/` |
+| OpenAI API key | Only `llm_compare.py` | Create one at platform.openai.com and put it in `.env` (see LLM comparison below) |
+
+None of these are in the repository: the dataset and GloVe are public and re-downloaded,
+and the API key must never be committed. `bootstrap_ci.py` and `error_analysis.py` need no
+key, because they only read the saved prediction files in `results/`.
 
 ## Shared conventions (every model follows these)
 
