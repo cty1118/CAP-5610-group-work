@@ -1,0 +1,82 @@
+{
+  "name": "cnn_final_on_llm_sample",
+  "split": "test",
+  "n": 2328,
+  "macro_f1": 80.89,
+  "accuracy": 86.51,
+  "weighted_f1": 86.34,
+  "per_class": {
+    "BACKGROUND": {
+      "precision": 65.33,
+      "recall": 79.56,
+      "f1": 71.74,
+      "support": 225
+    },
+    "OBJECTIVE": {
+      "precision": 76.34,
+      "recall": 52.63,
+      "f1": 62.31,
+      "support": 190
+    },
+    "METHODS": {
+      "precision": 88.45,
+      "recall": 94.36,
+      "f1": 91.31,
+      "support": 763
+    },
+    "RESULTS": {
+      "precision": 92.7,
+      "recall": 88.1,
+      "f1": 90.34,
+      "support": 807
+    },
+    "CONCLUSIONS": {
+      "precision": 88.89,
+      "recall": 88.63,
+      "f1": 88.76,
+      "support": 343
+    }
+  },
+  "confusion_matrix": [
+    [
+      179,
+      26,
+      14,
+      2,
+      4
+    ],
+    [
+      79,
+      100,
+      8,
+      0,
+      3
+    ],
+    [
+      4,
+      5,
+      720,
+      29,
+      5
+    ],
+    [
+      3,
+      0,
+      67,
+      711,
+      26
+    ],
+    [
+      9,
+      0,
+      5,
+      25,
+      304
+    ]
+  ],
+  "config": {
+    "source": "results/cnn_final/test_predictions.csv",
+    "n_abstracts": 200
+  },
+  "extra": {}
+}

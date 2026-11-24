@@ -1,0 +1,82 @@
+{
+  "name": "lstm_final_on_llm_sample",
+  "split": "test",
+  "n": 2328,
+  "macro_f1": 83.12,
+  "accuracy": 88.83,
+  "weighted_f1": 88.72,
+  "per_class": {
+    "BACKGROUND": {
+      "precision": 66.19,
+      "recall": 81.78,
+      "f1": 73.16,
+      "support": 225
+    },
+    "OBJECTIVE": {
+      "precision": 73.38,
+      "recall": 53.68,
+      "f1": 62.01,
+      "support": 190
+    },
+    "METHODS": {
+      "precision": 91.7,
+      "recall": 94.1,
+      "f1": 92.88,
+      "support": 763
+    },
+    "RESULTS": {
+      "precision": 93.81,
+      "recall": 91.95,
+      "f1": 92.87,
+      "support": 807
+    },
+    "CONCLUSIONS": {
+      "precision": 95.55,
+      "recall": 93.88,
+      "f1": 94.71,
+      "support": 343
+    }
+  },
+  "confusion_matrix": [
+    [
+      184,
+      33,
+      8,
+      0,
+      0
+    ],
+    [
+      84,
+      102,
+      4,
+      0,
+      0
+    ],
+    [
+      8,
+      4,
+      718,
+      31,
+      2
+    ],
+    [
+      1,
+      0,
+      51,
+      742,
+      13
+    ],
+    [
+      1,
+      0,
+      2,
+      18,
+      322
+    ]
+  ],
+  "config": {
+    "source": "results/lstm_final/test_predictions.csv",
+    "n_abstracts": 200
+  },
+  "extra": {}
+}

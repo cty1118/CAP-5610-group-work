@@ -21,3 +21,6 @@ checkpoints/
 
 # GloVe word vectors (~1GB, re-download from huggingface.co/stanfordnlp/glove)
 glove/
+
+# API keys (never commit)
+.env

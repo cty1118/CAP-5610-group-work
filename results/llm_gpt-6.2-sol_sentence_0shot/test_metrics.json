@@ -1,0 +1,99 @@
+{
+  "name": "llm_gpt-6.2-sol_sentence_0shot",
+  "split": "test",
+  "n": 2328,
+  "macro_f1": 84.1,
+  "accuracy": 90.03,
+  "weighted_f1": 90.04,
+  "per_class": {
+    "BACKGROUND": {
+      "precision": 71.1,
+      "recall": 68.89,
+      "f1": 69.98,
+      "support": 225
+    },
+    "OBJECTIVE": {
+      "precision": 64.29,
+      "recall": 66.32,
+      "f1": 65.28,
+      "support": 190
+    },
+    "METHODS": {
+      "precision": 92.44,
+      "recall": 96.2,
+      "f1": 94.28,
+      "support": 763
+    },
+    "RESULTS": {
+      "precision": 96.42,
+      "recall": 93.43,
+      "f1": 94.9,
+      "support": 807
+    },
+    "CONCLUSIONS": {
+      "precision": 96.75,
+      "recall": 95.34,
+      "f1": 96.04,
+      "support": 343
+    }
+  },
+  "confusion_matrix": [
+    [
+      155,
+      60,
+      10,
+      0,
+      0
+    ],
+    [
+      63,
+      126,
+      1,
+      0,
+      0
+    ],
+    [
+      0,
+      6,
+      734,
+      20,
+      3
+    ],
+    [
+      0,
+      0,
+      45,
+      754,
+      8
+    ],
+    [
+      0,
+      4,
+      4,
+      8,
+      327
+    ]
+  ],
+  "config": {
+    "model": "gpt-6.2-sol",
+    "setting": "sentence",
+    "shots": 0,
+    "n_abstracts": 200,
+    "batch_size": 25,
+    "reasoning_effort": null,
+    "max_requests": 0,
+    "workers": 8,
+    "retries": 2,
+    "seed": 42,
+    "name": null
+  },
+  "extra": {
+    "input_tokens": 121229,
+    "output_tokens": 41980,
+    "requests": 94,
+    "api_calls": 94,
+    "missing_labels": 0,
+    "fallback_label": "METHODS",
+    "n_abstracts": 200
+  }
+}

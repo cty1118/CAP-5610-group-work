@@ -1,0 +1,71 @@
+/Users/cty/Desktop/CAP5610-PubMed-RCT/.venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Repo card metadata block was not found. Setting CardData to empty.
+llm_gpt-6.2-sol_abstract_0shot: 200 requests over 2,328 sentences (5 cached, 195 to send)
+  10/195 requests sent
+  20/195 requests sent
+  30/195 requests sent
+  40/195 requests sent
+  50/195 requests sent
+  60/195 requests sent
+  70/195 requests sent
+  80/195 requests sent
+  90/195 requests sent
+  100/195 requests sent
+  110/195 requests sent
+  120/195 requests sent
+  130/195 requests sent
+  140/195 requests sent
+  150/195 requests sent
+  160/195 requests sent
+  170/195 requests sent
+  180/195 requests sent
+  190/195 requests sent
+  195/195 requests sent
+tokens so far: input 123,973  output 36,251  over 200 requests
+[llm_gpt-6.2-sol_abstract_0shot | test] macro-F1 85.1  acc 91.45  weighted-F1 91.52  (n=2,328)  -> /Users/cty/Desktop/CAP5610-PubMed-RCT/results/llm_gpt-6.2-sol_abstract_0shot
+/Users/cty/Desktop/CAP5610-PubMed-RCT/.venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Repo card metadata block was not found. Setting CardData to empty.
+llm_gpt-6.2-sol_sentence_0shot: 94 requests over 2,328 sentences (0 cached, 94 to send)
+  10/94 requests sent
+  20/94 requests sent
+  30/94 requests sent
+  40/94 requests sent
+  50/94 requests sent
+  60/94 requests sent
+  70/94 requests sent
+  80/94 requests sent
+  90/94 requests sent
+  94/94 requests sent
+tokens so far: input 121,229  output 41,980  over 94 requests
+[llm_gpt-6.2-sol_sentence_0shot | test] macro-F1 84.1  acc 90.03  weighted-F1 90.04  (n=2,328)  -> /Users/cty/Desktop/CAP5610-PubMed-RCT/results/llm_gpt-6.2-sol_sentence_0shot
+/Users/cty/Desktop/CAP5610-PubMed-RCT/.venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Repo card metadata block was not found. Setting CardData to empty.
+llm_gpt-6.2-sol_abstract_3shot: 200 requests over 2,328 sentences (0 cached, 200 to send)
+  10/200 requests sent
+  20/200 requests sent
+  30/200 requests sent
+  40/200 requests sent
+  50/200 requests sent
+  60/200 requests sent
+  70/200 requests sent
+  80/200 requests sent
+  90/200 requests sent
+  100/200 requests sent
+  110/200 requests sent
+  120/200 requests sent
+  130/200 requests sent
+  140/200 requests sent
+  150/200 requests sent
+  160/200 requests sent
+  170/200 requests sent
+  180/200 requests sent
+  190/200 requests sent
+  200/200 requests sent
+tokens so far: input 468,973  output 38,867  over 200 requests
+[llm_gpt-6.2-sol_abstract_3shot | test] macro-F1 85.84  acc 92.01  weighted-F1 92.05  (n=2,328)  -> /Users/cty/Desktop/CAP5610-PubMed-RCT/results/llm_gpt-6.2-sol_abstract_3shot
