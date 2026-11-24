@@ -1,0 +1,143 @@
+{
+  "name": "sweep_lstm_d0.2",
+  "split": "validation",
+  "n": 29672,
+  "macro_f1": 84.47,
+  "accuracy": 89.73,
+  "weighted_f1": 89.63,
+  "per_class": {
+    "BACKGROUND": {
+      "precision": 70.91,
+      "recall": 80.68,
+      "f1": 75.48,
+      "support": 2925
+    },
+    "OBJECTIVE": {
+      "precision": 74.92,
+      "recall": 59.47,
+      "f1": 66.31,
+      "support": 2376
+    },
+    "METHODS": {
+      "precision": 93.89,
+      "recall": 94.68,
+      "f1": 94.28,
+      "support": 9948
+    },
+    "RESULTS": {
+      "precision": 92.88,
+      "recall": 93.33,
+      "f1": 93.11,
+      "support": 9841
+    },
+    "CONCLUSIONS": {
+      "precision": 93.65,
+      "recall": 92.73,
+      "f1": 93.19,
+      "support": 4582
+    }
+  },
+  "confusion_matrix": [
+    [
+      2360,
+      429,
+      120,
+      10,
+      6
+    ],
+    [
+      897,
+      1413,
+      66,
+      0,
+      0
+    ],
+    [
+      66,
+      42,
+      9419,
+      396,
+      25
+    ],
+    [
+      3,
+      0,
+      396,
+      9185,
+      257
+    ],
+    [
+      2,
+      2,
+      31,
+      298,
+      4249
+    ]
+  ],
+  "config": {
+    "model": "lstm",
+    "name": "sweep_lstm_d0.2",
+    "max_len": 55,
+    "min_freq": 2,
+    "no_position": false,
+    "subset": 0,
+    "embedding": "random",
+    "glove_path": null,
+    "emb_dim": 128,
+    "freeze_emb": false,
+    "filter_widths": "3,4,5",
+    "n_filters": 100,
+    "hidden": 128,
+    "layers": 1,
+    "pooling": "last",
+    "dropout": 0.2,
+    "lr": 0.001,
+    "batch_size": 64,
+    "epochs": 6,
+    "patience": 2,
+    "clip": 1.0,
+    "seed": 42,
+    "device": "auto",
+    "eval_test": false,
+    "save_model": false
+  },
+  "extra": {
+    "params": 5903365,
+    "train_seconds": 224.1,
+    "best_epoch": 4,
+    "vocab_size": 43790,
+    "device": "cuda",
+    "history": [
+      {
+        "epoch": 1,
+        "train_loss": 0.4129,
+        "val_macro_f1": 83.06
+      },
+      {
+        "epoch": 2,
+        "train_loss": 0.2895,
+        "val_macro_f1": 84.18
+      },
+      {
+        "epoch": 3,
+        "train_loss": 0.2586,
+        "val_macro_f1": 84.09
+      },
+      {
+        "epoch": 4,
+        "train_loss": 0.2326,
+        "val_macro_f1": 84.47
+      },
+      {
+        "epoch": 5,
+        "train_loss": 0.2102,
+        "val_macro_f1": 84.1
+      },
+      {
+        "epoch": 6,
+        "train_loss": 0.1902,
+        "val_macro_f1": 83.52
+      }
+    ]
+  }
+}
