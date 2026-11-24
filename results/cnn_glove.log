@@ -1,0 +1,13 @@
+== cnn_d0.3_w234_glove  (device: mps)
+/Users/cty/Desktop/CAP5610-PubMed-RCT/.venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Repo card metadata block was not found. Setting CardData to empty.
+GloVe: 24,411 / 43,790 vocabulary words found
+vocab 43,790  train 176,642  val 29,672  trainable params 13,408,825
+epoch  1  train loss 0.4791  val macro-F1 79.94  (62s)
+epoch  2  train loss 0.3518  val macro-F1 81.15  (120s)
+epoch  3  train loss 0.2820  val macro-F1 79.71  (181s)
+epoch  4  train loss 0.2168  val macro-F1 79.48  (242s)
+early stop: no gain for 2 epochs
+[cnn_d0.3_w234_glove | validation] macro-F1 81.15  acc 86.88  weighted-F1 86.68  (n=29,672)  -> /Users/cty/Desktop/CAP5610-PubMed-RCT/results/cnn_d0.3_w234_glove

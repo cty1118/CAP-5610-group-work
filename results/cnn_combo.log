@@ -1,0 +1,28 @@
+== cnn_d0.3_w234  (device: mps)
+/Users/cty/Desktop/CAP5610-PubMed-RCT/.venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Repo card metadata block was not found. Setting CardData to empty.
+vocab 43,790  train 176,642  val 29,672  trainable params 5,722,145
+epoch  1  train loss 0.5803  val macro-F1 77.86  (42s)
+epoch  2  train loss 0.4338  val macro-F1 80.12  (86s)
+epoch  3  train loss 0.3874  val macro-F1 80.76  (131s)
+epoch  4  train loss 0.3488  val macro-F1 80.86  (179s)
+epoch  5  train loss 0.3126  val macro-F1 80.03  (226s)
+epoch  6  train loss 0.2780  val macro-F1 79.41  (271s)
+early stop: no gain for 2 epochs
+[cnn_d0.3_w234 | validation] macro-F1 80.86  acc 86.47  weighted-F1 86.36  (n=29,672)  -> /Users/cty/Desktop/CAP5610-PubMed-RCT/results/cnn_d0.3_w234
+== cnn_d0.3_w234_nopos  (device: mps)
+/Users/cty/Desktop/CAP5610-PubMed-RCT/.venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Repo card metadata block was not found. Setting CardData to empty.
+vocab 43,790  train 176,642  val 29,672  trainable params 5,722,125
+epoch  1  train loss 0.6493  val macro-F1 73.22  (36s)
+epoch  2  train loss 0.5076  val macro-F1 74.13  (78s)
+epoch  3  train loss 0.4496  val macro-F1 75.87  (122s)
+epoch  4  train loss 0.4019  val macro-F1 75.95  (163s)
+epoch  5  train loss 0.3575  val macro-F1 75.39  (197s)
+epoch  6  train loss 0.3176  val macro-F1 75.17  (231s)
+early stop: no gain for 2 epochs
+[cnn_d0.3_w234_nopos | validation] macro-F1 75.95  acc 82.66  weighted-F1 82.7  (n=29,672)  -> /Users/cty/Desktop/CAP5610-PubMed-RCT/results/cnn_d0.3_w234_nopos

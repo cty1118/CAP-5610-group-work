@@ -1,0 +1,27 @@
+== cnn_d0.3_w234_glove_nopos  (device: mps)
+/Users/cty/Desktop/CAP5610-PubMed-RCT/.venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Repo card metadata block was not found. Setting CardData to empty.
+GloVe: 24,411 / 43,790 vocabulary words found
+vocab 43,790  train 176,642  val 29,672  trainable params 13,408,805
+epoch  1  train loss 0.5273  val macro-F1 75.84  (58s)
+epoch  2  train loss 0.4013  val macro-F1 77.14  (116s)
+epoch  3  train loss 0.3183  val macro-F1 76.48  (176s)
+epoch  4  train loss 0.2433  val macro-F1 75.95  (238s)
+early stop: no gain for 2 epochs
+[cnn_d0.3_w234_glove_nopos | validation] macro-F1 77.14  acc 83.84  weighted-F1 83.69  (n=29,672)  -> /Users/cty/Desktop/CAP5610-PubMed-RCT/results/cnn_d0.3_w234_glove_nopos
+== cnn_final  (device: mps)
+/Users/cty/Desktop/CAP5610-PubMed-RCT/.venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Repo card metadata block was not found. Setting CardData to empty.
+GloVe: 24,411 / 43,790 vocabulary words found
+vocab 43,790  train 176,642  val 29,672  trainable params 13,408,825
+epoch  1  train loss 0.4792  val macro-F1 80.15  (64s)
+epoch  2  train loss 0.3518  val macro-F1 81.11  (129s)
+epoch  3  train loss 0.2814  val macro-F1 80.29  (196s)
+epoch  4  train loss 0.2159  val macro-F1 79.60  (264s)
+early stop: no gain for 2 epochs
+[cnn_final | validation] macro-F1 81.11  acc 86.85  weighted-F1 86.68  (n=29,672)  -> /Users/cty/Desktop/CAP5610-PubMed-RCT/results/cnn_final
+[cnn_final | test] macro-F1 80.88  acc 86.37  weighted-F1 86.19  (n=29,578)  -> /Users/cty/Desktop/CAP5610-PubMed-RCT/results/cnn_final

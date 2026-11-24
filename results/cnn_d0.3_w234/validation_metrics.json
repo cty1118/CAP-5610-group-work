@@ -1,0 +1,143 @@
+{
+  "name": "cnn_d0.3_w234",
+  "split": "validation",
+  "n": 29672,
+  "macro_f1": 80.86,
+  "accuracy": 86.47,
+  "weighted_f1": 86.36,
+  "per_class": {
+    "BACKGROUND": {
+      "precision": 67.51,
+      "recall": 73.81,
+      "f1": 70.52,
+      "support": 2925
+    },
+    "OBJECTIVE": {
+      "precision": 71.47,
+      "recall": 58.0,
+      "f1": 64.03,
+      "support": 2376
+    },
+    "METHODS": {
+      "precision": 91.26,
+      "recall": 92.17,
+      "f1": 91.71,
+      "support": 9948
+    },
+    "RESULTS": {
+      "precision": 90.32,
+      "recall": 90.63,
+      "f1": 90.47,
+      "support": 9841
+    },
+    "CONCLUSIONS": {
+      "precision": 87.18,
+      "recall": 87.97,
+      "f1": 87.57,
+      "support": 4582
+    }
+  },
+  "confusion_matrix": [
+    [
+      2159,
+      478,
+      129,
+      24,
+      135
+    ],
+    [
+      843,
+      1378,
+      97,
+      18,
+      40
+    ],
+    [
+      130,
+      66,
+      9169,
+      496,
+      87
+    ],
+    [
+      14,
+      3,
+      574,
+      8919,
+      331
+    ],
+    [
+      52,
+      3,
+      78,
+      418,
+      4031
+    ]
+  ],
+  "config": {
+    "model": "cnn",
+    "name": "cnn_d0.3_w234",
+    "max_len": 55,
+    "min_freq": 2,
+    "no_position": false,
+    "subset": 0,
+    "embedding": "random",
+    "glove_path": null,
+    "emb_dim": 128,
+    "freeze_emb": false,
+    "filter_widths": "2,3,4",
+    "n_filters": 100,
+    "hidden": 128,
+    "layers": 1,
+    "pooling": "last",
+    "dropout": 0.3,
+    "lr": 0.001,
+    "batch_size": 64,
+    "epochs": 10,
+    "patience": 2,
+    "clip": 0.0,
+    "seed": 42,
+    "device": "auto",
+    "eval_test": false,
+    "save_model": false
+  },
+  "extra": {
+    "params": 5722145,
+    "train_seconds": 271.2,
+    "best_epoch": 4,
+    "vocab_size": 43790,
+    "device": "mps",
+    "history": [
+      {
+        "epoch": 1,
+        "train_loss": 0.5803,
+        "val_macro_f1": 77.86
+      },
+      {
+        "epoch": 2,
+        "train_loss": 0.4338,
+        "val_macro_f1": 80.12
+      },
+      {
+        "epoch": 3,
+        "train_loss": 0.3874,
+        "val_macro_f1": 80.76
+      },
+      {
+        "epoch": 4,
+        "train_loss": 0.3488,
+        "val_macro_f1": 80.86
+      },
+      {
+        "epoch": 5,
+        "train_loss": 0.3126,
+        "val_macro_f1": 80.03
+      },
+      {
+        "epoch": 6,
+        "train_loss": 0.278,
+        "val_macro_f1": 79.41
+      }
+    ]
+  }
+}

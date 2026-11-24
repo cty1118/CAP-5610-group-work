@@ -1,0 +1,84 @@
+python train_nn.py --model cnn --name sweep_cnn_w234 --filter-widths 2,3,4
+== sweep_cnn_w234  (device: mps)
+/Users/cty/Desktop/CAP5610-PubMed-RCT/.venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Repo card metadata block was not found. Setting CardData to empty.
+vocab 43,790  train 176,642  val 29,672  trainable params 5,722,145
+epoch  1  train loss 0.6421  val macro-F1 76.70  (44s)
+epoch  2  train loss 0.4872  val macro-F1 79.20  (81s)
+epoch  3  train loss 0.4413  val macro-F1 79.52  (124s)
+epoch  4  train loss 0.4071  val macro-F1 80.22  (163s)
+epoch  5  train loss 0.3782  val macro-F1 79.56  (206s)
+epoch  6  train loss 0.3521  val macro-F1 78.98  (245s)
+early stop: no gain for 2 epochs
+[sweep_cnn_w234 | validation] macro-F1 80.22  acc 86.0  weighted-F1 85.83  (n=29,672)  -> /Users/cty/Desktop/CAP5610-PubMed-RCT/results/sweep_cnn_w234
+python train_nn.py --model cnn --name sweep_cnn_w357 --filter-widths 3,5,7
+== sweep_cnn_w357  (device: mps)
+Repo card metadata block was not found. Setting CardData to empty.
+vocab 43,790  train 176,642  val 29,672  trainable params 5,798,945
+epoch  1  train loss 0.6336  val macro-F1 76.11  (47s)
+epoch  2  train loss 0.4792  val macro-F1 79.07  (87s)
+epoch  3  train loss 0.4321  val macro-F1 79.31  (126s)
+epoch  4  train loss 0.3926  val macro-F1 79.06  (161s)
+epoch  5  train loss 0.3603  val macro-F1 79.04  (202s)
+early stop: no gain for 2 epochs
+[sweep_cnn_w357 | validation] macro-F1 79.31  acc 85.49  weighted-F1 85.23  (n=29,672)  -> /Users/cty/Desktop/CAP5610-PubMed-RCT/results/sweep_cnn_w357
+python train_nn.py --model cnn --name sweep_cnn_f64 --n-filters 64
+== sweep_cnn_f64  (device: mps)
+Repo card metadata block was not found. Setting CardData to empty.
+vocab 43,790  train 176,642  val 29,672  trainable params 5,704,601
+epoch  1  train loss 0.6440  val macro-F1 76.37  (45s)
+epoch  2  train loss 0.4878  val macro-F1 79.76  (92s)
+epoch  3  train loss 0.4422  val macro-F1 79.60  (131s)
+epoch  4  train loss 0.4098  val macro-F1 79.67  (174s)
+early stop: no gain for 2 epochs
+[sweep_cnn_f64 | validation] macro-F1 79.76  acc 85.62  weighted-F1 85.41  (n=29,672)  -> /Users/cty/Desktop/CAP5610-PubMed-RCT/results/sweep_cnn_f64
+python train_nn.py --model cnn --name sweep_cnn_f128 --n-filters 128
+== sweep_cnn_f128  (device: mps)
+Repo card metadata block was not found. Setting CardData to empty.
+vocab 43,790  train 176,642  val 29,672  trainable params 5,804,057
+epoch  1  train loss 0.6346  val macro-F1 75.88  (43s)
+epoch  2  train loss 0.4826  val macro-F1 78.83  (87s)
+epoch  3  train loss 0.4349  val macro-F1 79.23  (131s)
+epoch  4  train loss 0.3965  val macro-F1 79.29  (173s)
+epoch  5  train loss 0.3625  val macro-F1 78.96  (206s)
+epoch  6  train loss 0.3333  val macro-F1 78.05  (242s)
+early stop: no gain for 2 epochs
+[sweep_cnn_f128 | validation] macro-F1 79.29  acc 85.38  weighted-F1 85.16  (n=29,672)  -> /Users/cty/Desktop/CAP5610-PubMed-RCT/results/sweep_cnn_f128
+python train_nn.py --model cnn --name sweep_cnn_f256 --n-filters 256
+== sweep_cnn_f256  (device: mps)
+Repo card metadata block was not found. Setting CardData to empty.
+vocab 43,790  train 176,642  val 29,672  trainable params 6,002,969
+epoch  1  train loss 0.6387  val macro-F1 76.11  (40s)
+epoch  2  train loss 0.4891  val macro-F1 78.28  (79s)
+epoch  3  train loss 0.4367  val macro-F1 79.33  (118s)
+epoch  4  train loss 0.3949  val macro-F1 79.51  (158s)
+epoch  5  train loss 0.3568  val macro-F1 78.71  (197s)
+epoch  6  train loss 0.3164  val macro-F1 78.26  (237s)
+early stop: no gain for 2 epochs
+[sweep_cnn_f256 | validation] macro-F1 79.51  acc 85.35  weighted-F1 85.2  (n=29,672)  -> /Users/cty/Desktop/CAP5610-PubMed-RCT/results/sweep_cnn_f256
+python train_nn.py --model cnn --name sweep_cnn_d0.3 --dropout 0.3
+== sweep_cnn_d0.3  (device: mps)
+Repo card metadata block was not found. Setting CardData to empty.
+vocab 43,790  train 176,642  val 29,672  trainable params 5,760,545
+epoch  1  train loss 0.5794  val macro-F1 77.66  (30s)
+epoch  2  train loss 0.4295  val macro-F1 80.14  (61s)
+epoch  3  train loss 0.3796  val macro-F1 80.68  (92s)
+epoch  4  train loss 0.3354  val macro-F1 80.68  (123s)
+epoch  5  train loss 0.2952  val macro-F1 79.74  (153s)
+early stop: no gain for 2 epochs
+[sweep_cnn_d0.3 | validation] macro-F1 80.68  acc 86.35  weighted-F1 86.23  (n=29,672)  -> /Users/cty/Desktop/CAP5610-PubMed-RCT/results/sweep_cnn_d0.3
+python train_nn.py --model cnn --name sweep_cnn_lr3e-4 --lr 3e-4
+== sweep_cnn_lr3e-4  (device: mps)
+Repo card metadata block was not found. Setting CardData to empty.
+vocab 43,790  train 176,642  val 29,672  trainable params 5,760,545
+epoch  1  train loss 0.7410  val macro-F1 74.23  (31s)
+epoch  2  train loss 0.5382  val macro-F1 78.10  (69s)
+epoch  3  train loss 0.4818  val macro-F1 78.75  (111s)
+epoch  4  train loss 0.4482  val macro-F1 79.72  (153s)
+epoch  5  train loss 0.4205  val macro-F1 79.76  (190s)
+epoch  6  train loss 0.3994  val macro-F1 79.27  (230s)
+epoch  7  train loss 0.3807  val macro-F1 79.50  (271s)
+early stop: no gain for 2 epochs
+[sweep_cnn_lr3e-4 | validation] macro-F1 79.76  acc 85.78  weighted-F1 85.55  (n=29,672)  -> /Users/cty/Desktop/CAP5610-PubMed-RCT/results/sweep_cnn_lr3e-4
