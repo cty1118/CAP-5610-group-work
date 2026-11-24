@@ -111,6 +111,26 @@ def background_objective(runs, test):
     return lines
 
 
+def merged_scores(runs, test):
+    """Scores with Objective folded into Background: how much of the gap is that one pair?"""
+    from sklearn.metrics import accuracy_score, f1_score
+
+    def merge(a):
+        return np.where(a == OBJ, BG, a)
+
+    rows = []
+    for label, (idx, pred) in runs.items():
+        y = test.labels[idx]
+        rows.append([label, f"{len(idx):,}",
+                     f"{100 * accuracy_score(y, pred):.1f}", f"{100 * f1_score(y, pred, average='macro'):.1f}",
+                     f"{100 * accuracy_score(merge(y), merge(pred)):.1f}",
+                     f"{100 * f1_score(merge(y), merge(pred), average='macro'):.1f}"])
+    return ["Same predictions, scored again after treating Objective and Background as one class "
+            "(4 classes). Nothing is retrained.", "",
+            md_table(["Model", "Sentences", "5-class accuracy", "5-class macro-F1",
+                      "Merged accuracy", "Merged macro-F1"], rows), ""]
+
+
 def position_bins(test, idx, max_pos=10):
     pos = test.sentence_ids[idx] + 1
     return np.minimum(pos, max_pos + 1)  # last bin = "11+"
@@ -218,6 +238,10 @@ def main(argv=None):
     lines += error_by_position(full, test, OUT_DIR / "error_by_position.png")
     lines += ["## 4. Do the models fail on the same sentences? (LLM sample)", ""]
     lines += agreement(sample, test, args.examples, args.seed)
+    lines += ["## 5. Scores with Background and Objective merged", "", "### Full test set", ""]
+    lines += merged_scores(full, test)
+    lines += ["### LLM sample", ""]
+    lines += merged_scores(sample, test)[2:]
 
     md = "\n".join(lines)
     (OUT_DIR / "report.md").write_text(md)

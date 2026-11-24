@@ -109,3 +109,23 @@ Random examples (predictions in the order CNN, BiLSTM, GPT sentence 0-shot, GPT 
 | 6/13 | Results | Methods / Methods / Methods / Methods | Quality-adjusted lifeyears were calculated by utilizing community-based preferences . |
 | 1/9 | Objective | Background / Background / Background / Background | Certain plant polysaccharides may provide psychological health benefits . |
 | 3/12 | Objective | Background / Background / Background / Background | Acetazolamide effectively counteracts nocturnal periodic breathing , but it has been investigated almost exclusively in men . |
+
+## 5. Scores with Background and Objective merged
+
+### Full test set
+
+Same predictions, scored again after treating Objective and Background as one class (4 classes). Nothing is retrained.
+
+| Model | Sentences | 5-class accuracy | 5-class macro-F1 | Merged accuracy | Merged macro-F1 |
+|---|---:|---:|---:|---:|---:|
+| CNN | 29,578 | 86.4 | 80.9 | 90.7 | 90.6 |
+| BiLSTM | 29,578 | 89.8 | 84.5 | 94.2 | 94.4 |
+
+### LLM sample
+
+| Model | Sentences | 5-class accuracy | 5-class macro-F1 | Merged accuracy | Merged macro-F1 |
+|---|---:|---:|---:|---:|---:|
+| CNN | 2,328 | 86.5 | 80.9 | 91.0 | 91.0 |
+| BiLSTM | 2,328 | 88.8 | 83.1 | 93.9 | 94.3 |
+| GPT sentence 0-shot | 2,328 | 90.0 | 84.1 | 95.3 | 95.7 |
+| GPT abstract 3-shot | 2,328 | 92.0 | 85.8 | 97.3 | 97.7 |
