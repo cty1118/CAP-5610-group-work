@@ -33,6 +33,36 @@
       ]
     },
     {
+      "run": "MLP",
+      "dir": "mlp_final_on_llm_sample",
+      "macro_f1": 82.95,
+      "ci95": [
+        80.5,
+        85.4
+      ],
+      "diff_vs_ref": -0.18,
+      "diff_ci95": [
+        -1.5,
+        1.1
+      ],
+      "significant": false
+    },
+    {
+      "run": "BiomedBERT",
+      "dir": "bert_final_on_llm_sample",
+      "macro_f1": 84.25,
+      "ci95": [
+        82.0,
+        86.6
+      ],
+      "diff_vs_ref": 1.13,
+      "diff_ci95": [
+        -0.2,
+        2.6
+      ],
+      "significant": false
+    },
+    {
       "run": "gpt-6.2-sol sentence 0-shot",
       "dir": "llm_gpt-6.2-sol_sentence_0shot",
       "macro_f1": 84.1,

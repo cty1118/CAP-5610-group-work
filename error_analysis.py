@@ -32,10 +32,12 @@ BG, OBJ = LABELS.index("BACKGROUND"), LABELS.index("OBJECTIVE")
 INK, MUTED, GRID = "#14213D", "#5B6573", "#E3E7ED"
 SERIES_STYLE = [("#1F5FA8", "o", "-"), ("#D9822B", "s", "--"), ("#5B6573", "^", ":"), ("#14213D", "D", "-.")]
 
-DEFAULT_FULL = ["CNN=cnn_final", "BiLSTM=lstm_final"]
+DEFAULT_FULL = ["CNN=cnn_final", "BiLSTM=lstm_final", "MLP=mlp_final", "BiomedBERT=bert_final"]
 DEFAULT_SAMPLE = [
     "CNN=cnn_final_on_llm_sample",
     "BiLSTM=lstm_final_on_llm_sample",
+    "MLP=mlp_final_on_llm_sample",
+    "BiomedBERT=bert_final_on_llm_sample",
     "GPT sentence 0-shot=llm_gpt-6.2-sol_sentence_0shot",
     "GPT abstract 3-shot=llm_gpt-6.2-sol_abstract_3shot",
 ]
@@ -244,7 +246,7 @@ def main(argv=None):
     lines += merged_scores(sample, test)[2:]
 
     md = "\n".join(lines)
-    (OUT_DIR / "report.md").write_text(md)
+    (OUT_DIR / "report.md").write_text(md, encoding="utf-8")
     print(md)
 
 

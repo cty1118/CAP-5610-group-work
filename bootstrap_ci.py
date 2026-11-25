@@ -4,7 +4,7 @@ Resamples whole abstracts (not sentences), because sentences inside one abstract
 are correlated. Every run must have predictions for exactly the same sentences,
 which is the case for the LLM sample and the *_on_llm_sample re-scores.
 
-    python bootstrap_ci.py                     # default: CNN, BiLSTM and the gpt-6.2-sol runs
+    python bootstrap_ci.py                     # default: CNN, BiLSTM, MLP, BiomedBERT and the gpt-6.2-sol runs
     python bootstrap_ci.py --runs "CNN=cnn_final_on_llm_sample" "BiLSTM=lstm_final_on_llm_sample" \
                            --reference BiLSTM --n-boot 2000
 
@@ -23,6 +23,8 @@ from rct.evaluate import RESULTS_DIR, read_prediction_file
 DEFAULT_RUNS = [
     "CNN=cnn_final_on_llm_sample",
     "BiLSTM=lstm_final_on_llm_sample",
+    "MLP=mlp_final_on_llm_sample",
+    "BiomedBERT=bert_final_on_llm_sample",
     "gpt-6.2-sol sentence 0-shot=llm_gpt-6.2-sol_sentence_0shot",
     "gpt-6.2-sol abstract 0-shot=llm_gpt-6.2-sol_abstract_0shot",
     "gpt-6.2-sol abstract 3-shot=llm_gpt-6.2-sol_abstract_3shot",
@@ -103,7 +105,7 @@ def main(argv=None):
         "Significant = the 95% interval of the difference does not contain 0.",
     ]
     md = "\n".join(lines) + "\n"
-    (RESULTS_DIR / f"{args.out}.md").write_text(md)
+    (RESULTS_DIR / f"{args.out}.md").write_text(md, encoding="utf-8")
     (RESULTS_DIR / f"{args.out}.json").write_text(json.dumps({"meta": meta, "runs": rows}, indent=2))
     print(md)
 
