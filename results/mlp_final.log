@@ -1,0 +1,19 @@
+== mlp_final  (device: cpu)
+TF-IDF: 50,000 features, fit in 6s
+tfidf dim 50,000  train 176,642  val 29,672  trainable params 25,735,173
+epoch  1  train loss 0.4936  val macro-F1 83.42  (53s)
+epoch  2  train loss 0.2523  val macro-F1 84.27  (110s)
+epoch  3  train loss 0.1869  val macro-F1 83.75  (163s)
+epoch  4  train loss 0.1360  val macro-F1 82.83  (216s)
+early stop: no gain for 2 epochs
+[mlp_final | validation] macro-F1 84.27  acc 89.54  weighted-F1 89.46  (n=29,672)  -> C:\HW\CAP5610\Project\CAP-5610-group-work\results\mlp_final
+[mlp_final | test] macro-F1 84.08  acc 89.08  weighted-F1 88.99  (n=29,578)  -> C:\HW\CAP5610\Project\CAP-5610-group-work\results\mlp_final
+== mlp_final_nopos  (device: cpu)
+TF-IDF: 50,000 features, fit in 6s
+tfidf dim 50,000  train 176,642  val 29,672  trainable params 25,733,125
+epoch  1  train loss 0.6702  val macro-F1 75.58  (54s)
+epoch  2  train loss 0.3943  val macro-F1 77.18  (107s)
+epoch  3  train loss 0.3055  val macro-F1 77.05  (160s)
+epoch  4  train loss 0.2297  val macro-F1 76.30  (213s)
+early stop: no gain for 2 epochs
+[mlp_final_nopos | validation] macro-F1 77.18  acc 83.99  weighted-F1 83.9  (n=29,672)  -> C:\HW\CAP5610\Project\CAP-5610-group-work\results\mlp_final_nopos

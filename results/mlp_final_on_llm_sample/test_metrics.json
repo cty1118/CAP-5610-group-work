@@ -1,0 +1,82 @@
+{
+  "name": "mlp_final_on_llm_sample",
+  "split": "test",
+  "n": 2328,
+  "macro_f1": 82.95,
+  "accuracy": 88.32,
+  "weighted_f1": 88.2,
+  "per_class": {
+    "BACKGROUND": {
+      "precision": 68.46,
+      "recall": 79.11,
+      "f1": 73.4,
+      "support": 225
+    },
+    "OBJECTIVE": {
+      "precision": 72.97,
+      "recall": 56.84,
+      "f1": 63.91,
+      "support": 190
+    },
+    "METHODS": {
+      "precision": 90.38,
+      "recall": 94.76,
+      "f1": 92.51,
+      "support": 763
+    },
+    "RESULTS": {
+      "precision": 93.69,
+      "recall": 90.21,
+      "f1": 91.92,
+      "support": 807
+    },
+    "CONCLUSIONS": {
+      "precision": 93.0,
+      "recall": 93.0,
+      "f1": 93.0,
+      "support": 343
+    }
+  },
+  "confusion_matrix": [
+    [
+      178,
+      36,
+      11,
+      0,
+      0
+    ],
+    [
+      76,
+      108,
+      6,
+      0,
+      0
+    ],
+    [
+      4,
+      4,
+      723,
+      28,
+      4
+    ],
+    [
+      1,
+      0,
+      58,
+      728,
+      20
+    ],
+    [
+      1,
+      0,
+      2,
+      21,
+      319
+    ]
+  ],
+  "config": {
+    "source": "results\\mlp_final\\test_predictions.csv",
+    "n_abstracts": 200
+  },
+  "extra": {}
+}

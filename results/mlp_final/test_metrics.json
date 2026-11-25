@@ -1,0 +1,125 @@
+{
+  "name": "mlp_final",
+  "split": "test",
+  "n": 29578,
+  "macro_f1": 84.08,
+  "accuracy": 89.08,
+  "weighted_f1": 88.99,
+  "per_class": {
+    "BACKGROUND": {
+      "precision": 72.39,
+      "recall": 79.07,
+      "f1": 75.58,
+      "support": 3077
+    },
+    "OBJECTIVE": {
+      "precision": 72.56,
+      "recall": 60.74,
+      "f1": 66.12,
+      "support": 2333
+    },
+    "METHODS": {
+      "precision": 92.15,
+      "recall": 94.88,
+      "f1": 93.49,
+      "support": 9884
+    },
+    "RESULTS": {
+      "precision": 93.23,
+      "recall": 91.42,
+      "f1": 92.32,
+      "support": 9713
+    },
+    "CONCLUSIONS": {
+      "precision": 92.96,
+      "recall": 92.78,
+      "f1": 92.87,
+      "support": 4571
+    }
+  },
+  "confusion_matrix": [
+    [
+      2433,
+      497,
+      135,
+      9,
+      3
+    ],
+    [
+      807,
+      1417,
+      101,
+      8,
+      0
+    ],
+    [
+      103,
+      39,
+      9378,
+      323,
+      41
+    ],
+    [
+      14,
+      0,
+      542,
+      8880,
+      277
+    ],
+    [
+      4,
+      0,
+      21,
+      305,
+      4241
+    ]
+  ],
+  "config": {
+    "name": "mlp_final",
+    "max_features": 50000,
+    "ngram_max": 2,
+    "no_position": false,
+    "subset": 0,
+    "hidden": "512,256",
+    "dropout": 0.5,
+    "lr": 0.0003,
+    "weight_decay": 0.0,
+    "batch_size": 256,
+    "epochs": 20,
+    "patience": 2,
+    "seed": 42,
+    "device": "auto",
+    "threads": 0,
+    "eval_test": true,
+    "save_model": true
+  },
+  "extra": {
+    "params": 25735173,
+    "train_seconds": 216.4,
+    "best_epoch": 2,
+    "tfidf_dim": 50000,
+    "device": "cpu",
+    "history": [
+      {
+        "epoch": 1,
+        "train_loss": 0.4936,
+        "val_macro_f1": 83.42
+      },
+      {
+        "epoch": 2,
+        "train_loss": 0.2523,
+        "val_macro_f1": 84.27
+      },
+      {
+        "epoch": 3,
+        "train_loss": 0.1869,
+        "val_macro_f1": 83.75
+      },
+      {
+        "epoch": 4,
+        "train_loss": 0.136,
+        "val_macro_f1": 82.83
+      }
+    ]
+  }
+}
