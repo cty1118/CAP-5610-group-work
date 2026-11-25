@@ -1,0 +1,130 @@
+{
+  "name": "bert_final_nopos",
+  "split": "validation",
+  "n": 29672,
+  "macro_f1": 83.33,
+  "accuracy": 88.94,
+  "weighted_f1": 88.9,
+  "per_class": {
+    "BACKGROUND": {
+      "precision": 66.92,
+      "recall": 81.06,
+      "f1": 73.31,
+      "support": 2925
+    },
+    "OBJECTIVE": {
+      "precision": 78.59,
+      "recall": 60.4,
+      "f1": 68.3,
+      "support": 2376
+    },
+    "METHODS": {
+      "precision": 94.44,
+      "recall": 95.96,
+      "f1": 95.19,
+      "support": 9948
+    },
+    "RESULTS": {
+      "precision": 93.93,
+      "recall": 92.51,
+      "f1": 93.22,
+      "support": 9841
+    },
+    "CONCLUSIONS": {
+      "precision": 87.36,
+      "recall": 85.86,
+      "f1": 86.6,
+      "support": 4582
+    }
+  },
+  "confusion_matrix": [
+    [
+      2371,
+      332,
+      78,
+      10,
+      134
+    ],
+    [
+      823,
+      1435,
+      67,
+      2,
+      49
+    ],
+    [
+      72,
+      45,
+      9546,
+      256,
+      29
+    ],
+    [
+      21,
+      2,
+      357,
+      9104,
+      357
+    ],
+    [
+      256,
+      12,
+      60,
+      320,
+      3934
+    ]
+  ],
+  "config": {
+    "name": "bert_final_nopos",
+    "model": "biomedbert",
+    "checkpoint": "microsoft/BiomedNLP-BiomedBERT-base-uncased-abstract-fulltext",
+    "max_len": 128,
+    "no_position": true,
+    "subset": 0,
+    "eval_subset": 0,
+    "lr": 2e-05,
+    "head_lr": 0.001,
+    "epochs": 3,
+    "batch_size": 32,
+    "warmup": 0.1,
+    "weight_decay": 0.01,
+    "dropout": 0.1,
+    "clip": 1.0,
+    "patience": 0,
+    "seed": 42,
+    "device": "auto",
+    "amp": "auto",
+    "eval_batch_size": 256,
+    "log_every": 1000,
+    "eval_test": false,
+    "save_model": false
+  },
+  "extra": {
+    "params": 109486085,
+    "train_seconds": 2092.8,
+    "best_epoch": 3,
+    "device": "Tesla V100-PCIE-32GB (fp16)",
+    "history": [
+      {
+        "epoch": 1,
+        "train_loss": 0.3969,
+        "val_macro_f1": 80.44,
+        "seconds": 1445.1
+      },
+      {
+        "epoch": 2,
+        "train_loss": 0.2913,
+        "val_macro_f1": 83.07,
+        "seconds": 323.5
+      },
+      {
+        "epoch": 3,
+        "train_loss": 0.2324,
+        "val_macro_f1": 83.33,
+        "seconds": 323.5
+      }
+    ],
+    "train_size": 176642,
+    "truncated_share": 0.0032
+  }
+}

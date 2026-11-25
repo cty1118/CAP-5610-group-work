@@ -1,0 +1,130 @@
+{
+  "name": "bert_distilbert",
+  "split": "validation",
+  "n": 29672,
+  "macro_f1": 84.56,
+  "accuracy": 89.98,
+  "weighted_f1": 89.87,
+  "per_class": {
+    "BACKGROUND": {
+      "precision": 71.43,
+      "recall": 78.56,
+      "f1": 74.83,
+      "support": 2925
+    },
+    "OBJECTIVE": {
+      "precision": 75.21,
+      "recall": 61.15,
+      "f1": 67.46,
+      "support": 2376
+    },
+    "METHODS": {
+      "precision": 93.78,
+      "recall": 95.95,
+      "f1": 94.85,
+      "support": 9948
+    },
+    "RESULTS": {
+      "precision": 93.3,
+      "recall": 94.29,
+      "f1": 93.79,
+      "support": 9841
+    },
+    "CONCLUSIONS": {
+      "precision": 93.75,
+      "recall": 90.03,
+      "f1": 91.85,
+      "support": 4582
+    }
+  },
+  "confusion_matrix": [
+    [
+      2298,
+      430,
+      104,
+      25,
+      68
+    ],
+    [
+      809,
+      1453,
+      90,
+      8,
+      16
+    ],
+    [
+      69,
+      43,
+      9545,
+      268,
+      23
+    ],
+    [
+      9,
+      2,
+      383,
+      9279,
+      168
+    ],
+    [
+      32,
+      4,
+      56,
+      365,
+      4125
+    ]
+  ],
+  "config": {
+    "name": "bert_distilbert",
+    "model": "distilbert",
+    "checkpoint": "distilbert-base-uncased",
+    "max_len": 128,
+    "no_position": false,
+    "subset": 0,
+    "eval_subset": 0,
+    "lr": 2e-05,
+    "head_lr": 0.001,
+    "epochs": 3,
+    "batch_size": 32,
+    "warmup": 0.1,
+    "weight_decay": 0.01,
+    "dropout": 0.1,
+    "clip": 1.0,
+    "patience": 0,
+    "seed": 42,
+    "device": "auto",
+    "amp": "auto",
+    "eval_batch_size": 256,
+    "log_every": 1000,
+    "eval_test": true,
+    "save_model": false
+  },
+  "extra": {
+    "params": 66366745,
+    "train_seconds": 546.4,
+    "best_epoch": 2,
+    "device": "Tesla V100-PCIE-32GB (fp16)",
+    "history": [
+      {
+        "epoch": 1,
+        "train_loss": 0.4211,
+        "val_macro_f1": 82.45,
+        "seconds": 188.3
+      },
+      {
+        "epoch": 2,
+        "train_loss": 0.2794,
+        "val_macro_f1": 84.56,
+        "seconds": 178.6
+      },
+      {
+        "epoch": 3,
+        "train_loss": 0.2291,
+        "val_macro_f1": 84.24,
+        "seconds": 178.7
+      }
+    ],
+    "train_size": 176642,
+    "truncated_share": 0.0044
+  }
+}
