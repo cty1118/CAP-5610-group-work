@@ -1,0 +1,81 @@
+{
+  "meta": {
+    "split": "test",
+    "sentences": 2328,
+    "abstracts": 200,
+    "n_boot": 2000,
+    "seed": 0,
+    "reference": "BiomedBERT"
+  },
+  "runs": [
+    {
+      "run": "BiomedBERT",
+      "dir": "bert_final_on_llm_sample",
+      "macro_f1": 84.25,
+      "ci95": [
+        82.0,
+        86.6
+      ]
+    },
+    {
+      "run": "BERT-base",
+      "dir": "bert_bertbase_on_llm_sample",
+      "macro_f1": 83.27,
+      "ci95": [
+        80.9,
+        85.6
+      ],
+      "diff_vs_ref": -0.98,
+      "diff_ci95": [
+        -2.2,
+        0.1
+      ],
+      "significant": false
+    },
+    {
+      "run": "DistilBERT",
+      "dir": "bert_distilbert_on_llm_sample",
+      "macro_f1": 83.12,
+      "ci95": [
+        80.7,
+        85.4
+      ],
+      "diff_vs_ref": -1.14,
+      "diff_ci95": [
+        -2.5,
+        0.1
+      ],
+      "significant": false
+    },
+    {
+      "run": "BiLSTM",
+      "dir": "lstm_final_on_llm_sample",
+      "macro_f1": 83.12,
+      "ci95": [
+        80.6,
+        85.5
+      ],
+      "diff_vs_ref": -1.13,
+      "diff_ci95": [
+        -2.6,
+        0.2
+      ],
+      "significant": false
+    },
+    {
+      "run": "MLP",
+      "dir": "mlp_final_on_llm_sample",
+      "macro_f1": 82.95,
+      "ci95": [
+        80.5,
+        85.4
+      ],
+      "diff_vs_ref": -1.31,
+      "diff_ci95": [
+        -2.9,
+        0.2
+      ],
+      "significant": false
+    }
+  ]
+}

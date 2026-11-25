@@ -12,7 +12,7 @@ We compare MLP (TF-IDF), TextCNN, BiLSTM and fine-tuned BiomedBERT, plus a curre
 | Method 1: TextCNN | Tianyu | done: tuned, GloVe comparison, position ablation, test scored |
 | Method 2: BiLSTM | Tianyu | done: tuned, position ablation, test scored |
 | Method 3: MLP on TF-IDF | Minghao | done: tuned, position ablation, test scored |
-| Method 4: BiomedBERT | Minghao | done: LR / epochs / max_len sweep on a 30k subset, DistilBERT comparison, position ablation, test scored |
+| Method 4: BiomedBERT | Minghao | done: LR / epochs / max_len sweep on a 30k subset, DistilBERT and BERT-base comparisons, position ablation, test scored |
 | LLM comparison (gpt-6.2-sol) | Tianyu | done, on a 200-abstract test sample |
 | Error analysis, confidence intervals | Both | done for all four models and the LLM |
 | Final slides and report | Both | to do |
@@ -28,7 +28,8 @@ metric to compare with Dernoncourt & Lee 2017):
 | TextCNN | GloVe 300-d, widths 2,3,4, 100 filters, dropout 0.3 | 80.88 | 86.37 | 86.19 | 13.4M |
 | BiLSTM | random 128-d, hidden 128, 1 layer, attention pooling, dropout 0.3 | 84.55 | 89.76 | 89.62 | 5.9M |
 | BiomedBERT | [CLS] + position, lr 2e-5, 3 epochs (best: 2), max_len 128, batch 32 | **84.59** | **89.83** | **89.70** | 109.5M |
-| DistilBERT (comparison) | same recipe, general-domain checkpoint | 83.97 | 89.16 | 89.03 | 66.4M |
+| BERT-base (comparison) | same recipe, general-domain `bert-base-uncased`, same size as BiomedBERT | 84.05 | 89.32 | 89.19 | 109.5M |
+| DistilBERT (comparison) | same recipe, general-domain `distilbert-base-uncased`, 6 layers | 83.97 | 89.16 | 89.03 | 66.4M |
 
 The top three are within half a point of each other. Background and Objective stay the hard
 pair for every model (test F1 about 72–77 and 63–67), because telling them apart mostly needs
@@ -48,8 +49,12 @@ Shared 200-abstract test sample (2,328 sentences), 95% bootstrap CI over abstrac
 
 Paired against the BiLSTM on this sample, BiomedBERT is +1.13 [-0.2, +2.6] and the MLP -0.18
 [-1.5, +1.1], so neither difference is significant; only the whole-abstract LLM runs beat the BiLSTM
-significantly. BiomedBERT vs DistilBERT (test, full set): 84.59 vs 83.97, so PubMed pretraining adds
-about 0.6 macro-F1.
+significantly.
+
+PubMed pretraining vs model size (test, full set): BiomedBERT 84.59, same-size general BERT-base
+84.05, 6-layer DistilBERT 83.97. Medical pretraining is worth about 0.5 macro-F1 at equal size, and
+halving the depth costs only 0.1. On the shared sample BiomedBERT leads BERT-base by 0.98 [-2.2, +0.1],
+again not significant ([`results/bootstrap_ci_transformers.md`](results/bootstrap_ci_transformers.md)).
 
 Position ablation (validation macro-F1): CNN 81.15 → 77.14, BiLSTM 85.04 → 78.29,
 MLP 84.27 → 77.18, BiomedBERT 85.41 → 83.33. The pretrained Transformer leans on position far
@@ -68,7 +73,7 @@ Every run is in [`results/summary.md`](results/summary.md); the error analysis i
 | `sweep_nn.py` | One-at-a-time hyperparameter search for CNN / LSTM | Tianyu |
 | `rct/mlp.py` | MLP on sparse TF-IDF + position features | Minghao |
 | `train_mlp.py`, `sweep_mlp.py` | Train / sweep the MLP (CPU is enough) | Minghao |
-| `train_bert.py`, `sweep_bert.py` | Fine-tune BiomedBERT or DistilBERT; LR sweep on a 30k subset | Minghao |
+| `train_bert.py`, `sweep_bert.py` | Fine-tune BiomedBERT, BERT-base or DistilBERT; LR sweep on a 30k subset | Minghao |
 | `slurm/` | Setup and job scripts for the UCF ARCC Newton GPU cluster | Minghao |
 | `llm_compare.py` | LLM comparison through the OpenAI API on a fixed test sample | Tianyu |
 | `bootstrap_ci.py` | 95% confidence intervals and paired differences on the shared sample | Tianyu |
@@ -101,7 +106,7 @@ All are in [`requirements.txt`](requirements.txt). Versions we ran with:
 | Package | Used for | Tested version |
 |---|---|---|
 | `torch` | All neural models and training | 2.8.0; 2.15 (CPU, Windows) and 2.14.1+cu126 (Newton) for MLP / BERT |
-| `transformers` | BiomedBERT and DistilBERT (`train_bert.py`) | 5.24.1 |
+| `transformers` | BiomedBERT, BERT-base and DistilBERT (`train_bert.py`) | 5.24.1 |
 | `datasets` | Downloading PubMed 20k RCT from Hugging Face | 4.5.0, 5.2.0 |
 | `numpy` | Arrays, sampling, bootstrap | 2.0.2 |
 | `scikit-learn` | Metrics (macro-F1, confusion matrix), TF-IDF | 1.6.1, 1.9.1 |
@@ -138,7 +143,7 @@ python train_nn.py --model cnn --subset 5000 --epochs 1
 |---|---|---|
 | PubMed 20k RCT dataset | Everything | Downloaded automatically on first run to `./data/hf_cache` |
 | GloVe 300-d word vectors | Only the GloVe CNN (`--embedding glove`) | See the GloVe commands in the CNN section below; saved to `./glove/` |
-| BiomedBERT / DistilBERT weights | Only `train_bert.py` | Downloaded automatically from Hugging Face on first run (about 440 MB and 270 MB) |
+| BiomedBERT / BERT-base / DistilBERT weights | Only `train_bert.py` | Downloaded automatically from Hugging Face on first run (about 440, 440 and 270 MB) |
 | OpenAI API key | Only `llm_compare.py` | Create one at platform.openai.com and put it in `.env` (see LLM comparison below) |
 
 None of these are in the repository: the dataset and GloVe are public and re-downloaded,
@@ -226,27 +231,28 @@ Every sweep setting landed within 83.8–84.3 validation macro-F1; combining the
 (`results/mlp_lr3e-4_*`) did not beat lowering the learning rate alone, so the final MLP is the
 start config (512 → 256, dropout 0.5, 50k features) with Adam 3e-4. It overfits after 1–2 epochs.
 
-### BiomedBERT and DistilBERT (GPU)
+### BiomedBERT, BERT-base and DistilBERT (GPU)
 
 `microsoft/BiomedNLP-BiomedBERT-base-uncased-abstract-fulltext` (Gu et al. 2021); the sentence is
 WordPiece-tokenized, the final-layer [CLS] vector is concatenated with the 4 position features and
 fed to one linear layer. AdamW, batch 32, 10% linear warmup, weight decay 0.01, gradient clipping 1.0,
 mixed precision (fp16 on V100, bf16 on H100). The new linear head gets learning rate 1e-3
 (`--head-lr`), because at 2e-5 it would barely learn the position weights in 3 epochs. Validation is
-scored after every epoch and the best epoch is kept. `--model distilbert` runs the same recipe on
-general-domain `distilbert-base-uncased`.
+scored after every epoch and the best epoch is kept. `--model bertbase` and `--model distilbert` run
+the same recipe on general-domain `bert-base-uncased` (same size) and `distilbert-base-uncased`.
 
 ```bash
 python train_bert.py --subset 2000 --eval-subset 1000 --epochs 1      # smoke test (CPU works, slowly)
 python sweep_bert.py --only lr2e-5,lr3e-5,lr5e-5,e2,len128           # 30k-sentence subset, full validation
 python train_bert.py --name bert_final --max-len 128 --eval-test --save-model
+python train_bert.py --name bert_bertbase --model bertbase --max-len 128 --eval-test
 python train_bert.py --name bert_distilbert --model distilbert --max-len 128 --eval-test
 python train_bert.py --name bert_final_nopos --max-len 128 --no-position
 ```
 
 On the 30k subset all five sweep settings scored 82.2–82.7 validation macro-F1; lr 2e-5 (the start
 value) was best among the learning rates and max_len 128 added 0.2, so the final config is lr 2e-5,
-3 epochs, max_len 128. Validation peaked after epoch 2 for both BiomedBERT and DistilBERT, so that
+3 epochs, max_len 128. Validation peaked after epoch 2 for all three Transformers, so that
 epoch's weights were kept. On a V100 one full-data epoch takes about 5.5 minutes for BiomedBERT and 3
 for DistilBERT; `bert_final`'s recorded 36 training minutes include a first epoch that ran several
 times slower on a busy node.

@@ -1,0 +1,82 @@
+{
+  "name": "bert_bertbase_on_llm_sample",
+  "split": "test",
+  "n": 2328,
+  "macro_f1": 83.27,
+  "accuracy": 88.79,
+  "weighted_f1": 88.7,
+  "per_class": {
+    "BACKGROUND": {
+      "precision": 67.69,
+      "recall": 78.22,
+      "f1": 72.58,
+      "support": 225
+    },
+    "OBJECTIVE": {
+      "precision": 74.0,
+      "recall": 58.42,
+      "f1": 65.29,
+      "support": 190
+    },
+    "METHODS": {
+      "precision": 91.57,
+      "recall": 95.41,
+      "f1": 93.45,
+      "support": 763
+    },
+    "RESULTS": {
+      "precision": 93.44,
+      "recall": 91.82,
+      "f1": 92.62,
+      "support": 807
+    },
+    "CONCLUSIONS": {
+      "precision": 94.24,
+      "recall": 90.67,
+      "f1": 92.42,
+      "support": 343
+    }
+  },
+  "confusion_matrix": [
+    [
+      176,
+      35,
+      10,
+      1,
+      3
+    ],
+    [
+      75,
+      111,
+      3,
+      1,
+      0
+    ],
+    [
+      4,
+      3,
+      728,
+      26,
+      2
+    ],
+    [
+      2,
+      0,
+      50,
+      741,
+      14
+    ],
+    [
+      3,
+      1,
+      4,
+      24,
+      311
+    ]
+  ],
+  "config": {
+    "source": "results\\bert_bertbase\\test_predictions.csv",
+    "n_abstracts": 200
+  },
+  "extra": {}
+}

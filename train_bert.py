@@ -38,6 +38,8 @@ CHECKPOINTS = {
     "biomedbert": "microsoft/BiomedNLP-BiomedBERT-base-uncased-abstract-fulltext",
     # general-domain comparison (Wikipedia + books), 6 layers
     "distilbert": "distilbert-base-uncased",
+    # general-domain BERT-base, same 12-layer size as BiomedBERT: isolates the effect of PubMed pretraining
+    "bertbase": "bert-base-uncased",
 }
 
 

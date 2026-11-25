@@ -90,3 +90,34 @@ epoch  2  train loss 0.2913  val macro-F1 83.07  (1769s)
 epoch  3  train loss 0.2324  val macro-F1 83.33  (2093s)
 [bert_final_nopos | validation] macro-F1 83.33  acc 88.94  weighted-F1 88.9  (n=29,672)  -> /lustre/fs1/home/mi161650/cap5610/repo/results/bert_final_nopos
 done at Wed Nov 25 16:56:06 EST 2026
+### logs/bert_bertbase-1245236.out
+job 1245236 on evc12 at Wed Nov 25 17:31:37 EST 2026
+name, memory.total [MiB], driver_version
+Tesla V100-PCIE-32GB, 32768 MiB, 580.105.08
+torch 2.14.1+cu126 cuda 12.6 | transformers 5.24.1 | gpu ok: True
++ python train_bert.py --name bert_bertbase --model bertbase --max-len 128 --eval-test --log-every 1000
+== bert_bertbase  (device: Tesla V100-PCIE-32GB (fp16), checkpoint: bert-base-uncased)
+tokenized in 25s; train 176,642  val 29,672  mean tokens 35.8  truncated at 128: 0.4% of train
+trainable params 109,486,105  steps/epoch 5,521  total steps 16,563
+  epoch 1 step 1,000/16,563  loss 0.6516  428 sent/s
+  epoch 1 step 2,000/16,563  loss 0.5300  471 sent/s
+  epoch 1 step 3,000/16,563  loss 0.4755  490 sent/s
+  epoch 1 step 4,000/16,563  loss 0.4416  499 sent/s
+  epoch 1 step 5,000/16,563  loss 0.4176  504 sent/s
+epoch  1  train loss 0.4079  val macro-F1 82.97  (354s)
+  epoch 2 step 6,000/16,563  loss 0.2791  523 sent/s
+  epoch 2 step 7,000/16,563  loss 0.2774  525 sent/s
+  epoch 2 step 8,000/16,563  loss 0.2769  527 sent/s
+  epoch 2 step 9,000/16,563  loss 0.2741  528 sent/s
+  epoch 2 step 10,000/16,563  loss 0.2727  528 sent/s
+  epoch 2 step 11,000/16,563  loss 0.2710  527 sent/s
+epoch  2  train loss 0.2710  val macro-F1 84.45  (694s)
+  epoch 3 step 12,000/16,563  loss 0.2236  530 sent/s
+  epoch 3 step 13,000/16,563  loss 0.2221  531 sent/s
+  epoch 3 step 14,000/16,563  loss 0.2209  532 sent/s
+  epoch 3 step 15,000/16,563  loss 0.2185  532 sent/s
+  epoch 3 step 16,000/16,563  loss 0.2169  529 sent/s
+epoch  3  train loss 0.2161  val macro-F1 84.31  (1033s)
+[bert_bertbase | validation] macro-F1 84.45  acc 89.88  weighted-F1 89.77  (n=29,672)  -> /lustre/fs1/home/mi161650/cap5610/repo/results/bert_bertbase
+[bert_bertbase | test] macro-F1 84.05  acc 89.32  weighted-F1 89.19  (n=29,578)  -> /lustre/fs1/home/mi161650/cap5610/repo/results/bert_bertbase
+done at Wed Nov 25 17:52:18 EST 2026
